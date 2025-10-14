@@ -19,8 +19,3 @@ response = requests.get(url, headers=headers)
 print(response.status_code)
 print(response.json())
 
-
-curl -X POST "https://api.render.com/deploy/srv-d3mrsuvdiees739se7dg" \
-  -H "Authorization: Bearer rnd_Kj7KVI1swU0nzsJzg0tPsY71SyeV" \
-  -H "Content-Type: application/json" \
-  -d '{"clearCache": true, "dockerImage": "user1122sh/autoinsight-dashboard:latest"}'
