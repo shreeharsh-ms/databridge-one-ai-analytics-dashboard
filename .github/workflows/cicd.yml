@@ -22,8 +22,8 @@ jobs:
       - name: Build Docker image
         run: |
           cd autoinsight-dashboard
-          docker build -t yourdockerhubusername/autoinsight-dashboard:latest .
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/autoinsight-dashboard:latest .
 
       - name: Push Docker image
         run: |
-          docker push yourdockerhubusername/autoinsight-dashboard:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/autoinsight-dashboard:latest
