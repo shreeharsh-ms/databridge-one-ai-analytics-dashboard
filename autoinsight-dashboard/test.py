@@ -1,62 +1,26 @@
-import os
+import requests
 
-# Root path (replace with your repo root if needed)
-root_dir = "databridge-one-ai-analytics-dashboard"  # change this to your repo path
+# Replace with your actual Render API key
+API_KEY = "rnd_Kj7KVI1swU0nzsJzg0tPsY71SyeV"
 
-# Dockerfile content
-dockerfile_content = """\
-# Step 1: Build React app
-FROM node:20-alpine AS builder
-WORKDIR /app
-COPY autoinsight-dashboard/package.json autoinsight-dashboard/package-lock.json ./
-RUN npm install
-COPY autoinsight-dashboard/ ./
-RUN npm run build
+# URL to fetch all services (or deploy a specific one)
+url = "https://api.render.com/v1/services"
 
-# Step 2: Serve with Nginx
-FROM nginx:alpine
-RUN rm -rf /usr/share/nginx/html/*
-COPY --from=builder /app/dist /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
-"""
-
-# docker-compose.yml content
-docker_compose_content = """\
-version: '3.8'
-services:
-  autoinsight-dashboard:
-    build: .
-    ports:
-      - "80:80"
-"""
-
-# nginx.conf content (SPA routing)
-nginx_conf_content = """\
-server {
-    listen 80;
-    server_name _;
-    root /usr/share/nginx/html;
-    index index.html;
-    location / {
-        try_files $uri /index.html;
-    }
-}
-"""
-
-# Files to create
-files_to_create = {
-    "Dockerfile": dockerfile_content,
-    "docker-compose.yml": docker_compose_content,
-    "nginx.conf": nginx_conf_content,
+# Set the Authorization header
+headers = {
+    "Authorization": f"Bearer {API_KEY}",
+    "Content-Type": "application/json"
 }
 
-# Create files
-for filename, content in files_to_create.items():
-    path = os.path.join(root_dir, filename)
-    with open(path, "w") as f:
-        f.write(content)
-    print(f"Created: {path}")
+# Make the GET request
+response = requests.get(url, headers=headers)
 
-print("\n✅ Docker files created in the root directory!")
+# Print response JSON
+print(response.status_code)
+print(response.json())
+
+
+curl -X POST "https://api.render.com/deploy/srv-d3mrsuvdiees739se7dg" \
+  -H "Authorization: Bearer rnd_Kj7KVI1swU0nzsJzg0tPsY71SyeV" \
+  -H "Content-Type: application/json" \
+  -d '{"clearCache": true, "dockerImage": "user1122sh/autoinsight-dashboard:latest"}'
