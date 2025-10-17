@@ -1,0 +1,166 @@
+/* TestingPage.css */
+.testing-page {
+  padding: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+  background: #f8f9fa;
+  min-height: 100vh;
+}
+
+.testing-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 32px;
+  background: white;
+  border: 1px solid #e5e5e5;
+}
+
+.testing-header h1 {
+  font-size: 32px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 8px;
+}
+
+.testing-header p {
+  font-size: 16px;
+  color: #666;
+}
+
+.routes-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.route-section {
+  background: white;
+  border: 1px solid #e5e5e5;
+  padding: 24px;
+}
+
+.route-section h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #0066cc;
+}
+
+.route-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.route-card {
+  display: block;
+  padding: 20px;
+  border: 1px solid #e5e5e5;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.15s ease;
+  background: white;
+}
+
+.route-card:hover {
+  border-color: #0066cc;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  color: inherit;
+}
+
+.route-card.main {
+  border-left: 4px solid #0066cc;
+}
+
+.route-card.database {
+  border-left: 4px solid #107c10;
+}
+
+.route-card.file-api {
+  border-left: 4px solid #ff8c00;
+}
+
+.route-card.config {
+  border-left: 4px solid #d13438;
+}
+
+.card-content h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 8px;
+}
+
+.card-content p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.route-path {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 12px;
+  color: #999;
+  background: #f8f9fa;
+  padding: 4px 8px;
+  border-radius: 2px;
+}
+
+.testing-notes {
+  background: white;
+  border: 1px solid #e5e5e5;
+  padding: 24px;
+  margin-top: 32px;
+}
+
+.testing-notes h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 16px;
+}
+
+.testing-notes ul {
+  list-style: none;
+  padding: 0;
+}
+
+.testing-notes li {
+  padding: 8px 0;
+  font-size: 14px;
+  color: #666;
+  position: relative;
+  padding-left: 20px;
+}
+
+.testing-notes li:before {
+  content: "•";
+  color: #0066cc;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .testing-page {
+    padding: 16px;
+  }
+  
+  .route-cards {
+    grid-template-columns: 1fr;
+  }
+  
+  .testing-header {
+    padding: 24px 16px;
+  }
+  
+  .testing-header h1 {
+    font-size: 24px;
+  }
+}

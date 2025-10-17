@@ -19,6 +19,9 @@ import TestFileSource from './pages/FileStorage/TestFileSource';
 import TestApiConnection from './pages/ApiEndpointsConnections/TestApiConnection';
 import MySQLConfiguration from './pages/Mysql/MySQLConfiguration';
 import TestMySQLConnection from './pages/Mysql/TestMySQL';
+import DataExplore from './pages/DataExplore/DataExplore.JSX';
+import DataManipulation from './pages/DataManipulation/DataManipulation';
+import TestingPage from './pages/Testing/TestingPage';
 import './App.css';
 
 function App() {
@@ -26,7 +29,8 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-          <Route path="/" element={<Navigate to="/connections" replace />} />
+          <Route path="/" element={<Navigate to="/testing" replace />} />
+          <Route path="/testing" element={<TestingPage />} />
           <Route path="/connections" element={<DataConnectionsOverview />} />
           <Route path="/configure-mongodb" element={<MongoDBConnection />} />
           <Route path="/test-mongodb" element={<TestConnection />} />
@@ -46,6 +50,9 @@ function App() {
             <Route path="/test-apiconnection" element={<TestApiConnection />} />
             <Route path="/configure-mysql" element={<MySQLConfiguration />} />
             <Route path="/test-mysql" element={<TestMySQLConnection />} />
+            <Route path="/data-explore" element={<DataExplore />} />
+            <Route path="/data-manipulation" element={<DataManipulation />} />
+
         </Routes>
       </div>
     </Router>
