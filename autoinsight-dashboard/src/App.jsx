@@ -19,7 +19,7 @@ import TestFileSource from './pages/FileStorage/TestFileSource';
 import TestApiConnection from './pages/ApiEndpointsConnections/TestApiConnection';
 import MySQLConfiguration from './pages/Mysql/MySQLConfiguration';
 import TestMySQLConnection from './pages/Mysql/TestMySQL';
-import DataExplore from './pages/DataExplore/DataExplore.JSX';
+import DataExplore from './pages/DataExplore/dataExplore.jsx';
 import DataManipulation from './pages/DataManipulation/DataManipulation';
 import TestingPage from './pages/Testing/TestingPage';
 import './App.css';
